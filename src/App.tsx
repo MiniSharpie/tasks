@@ -1,17 +1,20 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
-import img from "./assets/F-350 Front Right.jpg";
+import img from "./assets/stubtoe.jpg";
 function App(): JSX.Element {
     return (
         <div className="App">
-            <h1 className="App-header" style={{ backgroundColor: "#7B3702" }}>
-                Hello People! I have arrived, and I am William Sharp UD CISC275
-                I hope your day is wonderful!
+            <header className="App-header">
+                UD CISC275 with React Hooks and TypeScript
+            </header>
+            <h1>
+                Hello People! I have arrived, and I am William Sharp I hope your
+                day is wonderful!
             </h1>
-            <img src={img} alt="A picture of a big ol truck" />
+            <img src={img} alt="A picture of a an alien dog" />
             <ul>
-                <li>Make the bread</li>
+                <li>Make the bread</li>66
                 <li>Spend the bread</li>
                 <li>Make the bread again</li>
             </ul>

@@ -242,29 +242,21 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    let ifSame = false;
-    if (newQuestionType === "multiple_choice_question") {
-        ifSame = true;
-    } else {
-        ifSame = false;
-    }
-    const newQuestionsType = questions.map(
-        (question: Question): Question =>
-            question.id === targetId
-                ? ifSame
-                    ? {
-                          ...question,
-                          options: [...question.options],
-                          type: newQuestionType
-                      }
-                    : { ...question, options: [], type: newQuestionType }
-                : {
-                      ...question,
-                      options: [...question.options]
-                  }
+    const questionIndex = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+    const newArray = questions.map(
+        (question: Question): Question => ({
+            ...question,
+            options: [...question.options]
+        })
     );
 
-    return newQuestionsType;
+    if (newQuestionType != "multiple_choice_question") {
+        newArray[questionIndex].options = [];
+    }
+    newArray[questionIndex].type = newQuestionType;
+    return newArray;
 }
 
 /**
